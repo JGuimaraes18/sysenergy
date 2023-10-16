@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session , flash, jsonify#, send_file, make_response
+from flask import Flask, render_template, request, redirect, url_for, session , flash, jsonify
 from gevent.pywsgi import WSGIServer
 from connection import *  
 import re 
