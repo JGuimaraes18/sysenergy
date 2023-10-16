@@ -1,0 +1,36 @@
+<html lang="en"> 
+    <head> 
+        <title>Observações</title> 
+        <link rel="stylesheet" href="../static/style.css"> 
+    </head> 
+    <body> 
+        {% include "menu.html" %}
+        <main>
+            <section>
+                <div class="content" align="center"> 
+                    <div class="contentbar"> 
+                        <h1>Observações</h1>    </br> 
+                        {% block content %} 
+                        <div class="border"> 
+                            <table class="worddark"></br></br></br></br> 
+                                <tr> 
+                                    <td>Operador:</td> 
+                                    <td>{{ account['operador'] }}</td> 
+                                </tr> 
+                                <tr> 
+                                    <td>Email:</td> 
+                                    <td>{{ account['email'] }}</td> 
+                                </tr> 
+                                <tr> 
+                                    <td>Empresa:</td> 
+                                    <td>{{ account['empresa'] }}</td> 
+                                </tr>                        
+                            </table> 
+                        </div> 
+                        {% endblock %}                                            
+                    </div> 
+                </div> 
+            </section>
+        </main>
+    </body> 
+</html> 

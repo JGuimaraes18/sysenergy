@@ -1,0 +1,6 @@
+Flask==2.3.2
+gevent==23.7.0
+PyMySQL==1.1.0
+python-dotenv==1.0.0
+fpdf==1.7.2
+reportlab==4.0.5

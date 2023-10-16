@@ -1,0 +1,46 @@
+@import '~mdb-ui-kit/css/mdb.min.css';
+body {
+  background: var(--gray-50, #0099ff);
+  display: grid;
+  grid-template-rows: $header-height auto;
+  grid-template-columns: $sidebar-width auto;
+  grid-template-areas:
+    'sidebar content';
+}
+
+#header {
+  grid-area: header;
+}
+
+#sidebar {
+  grid-area: sidebar;
+  background-color: red;
+}
+
+#content {
+  grid-area: content;
+  background-color: yellow;
+}  
+
+@media (max-width: $responsive-breakpoint) {
+  body {
+    grid-template-areas:
+      'header header'
+      'content content'
+      ;
+  }
+
+  #sidebar {
+    grid-area: content;
+    position: relative;
+    left: 0;
+  }
+
+  #sidebar.collapsed {
+    left: -100%;
+  }
+}
+
+#table {
+  border: 1px solid black;
+}

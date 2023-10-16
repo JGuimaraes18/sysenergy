@@ -1,0 +1,78 @@
+<head>
+  <!--<link rel="stylesheet" href="../static/style.css">-->
+  <link rel="stylesheet" href="../static/index.css" />
+  <!--<link rel="stylesheet" href="../static/sidebar.scss">-->
+  <!-- Font Awesome -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+  />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+  />
+  <!-- MDB -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"
+    rel="stylesheet"
+  />
+  
+</head>
+<script src="../static/controller.js"></script>
+<!-- MDB -->
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"
+></script>
+
+<div class="sidebar">
+  <h1>SYSENERGY</h1>
+  <div id="linha-horizontal"></div>
+  <ul>
+    <a href="{{url_for('index')}}" ><li><i class="fa fa-home"></i>&nbsp Home</li></a>
+    <a href="{{url_for('supercomputacao')}}"><li><i class="fa fa-desktop"></i>&nbsp Supercomputação</li></a>
+    <a href="{{url_for('datacenter')}}"><li><li><i class="fa fa-database"></i>&nbsp Datacenter</li></a>
+    <a href="{{url_for('utilidades')}}"><li><li><i class="fa fa-tags"></i>&nbsp Utilidades</li></a>
+    <a href="{{url_for('arcondicionado')}}"><li><li><i class="fa fa-leaf"></i>&nbsp Ar Condicionado</li></a>
+    <a href="{{url_for('cag')}}"><li><li><i class="fa fa-snowflake"></i>&nbsp CAG</li></a>
+    <a href="{{url_for('agua')}}"><li><li><i class="fa fa-tint"></i>&nbsp Água</li></a>
+    <a href="{{url_for('gerador')}}"><li><li><i class="fa fa-industry"></i>&nbsp Gerador</li></a>
+    <a href="{{url_for('combustivel')}}"><li><li><i class="fa fa-gas-pump"></i>&nbsp Combustível</li></a>
+    <a href="{{url_for('usuario')}}"><li><li><i class="fa fa-id-card"></i>&nbsp Cadastro</li></a>
+    <a href="{{url_for('usuario')}}"><li><li><i class="fa fa-pencil-square"></i>&nbsp Observações</li></a>
+  </ul>
+
+  <p id="text-session">
+    Bem vindo, {{ session['operador'] }}!
+    &nbsp;
+    <a href="{{url_for('logout')}}">
+      <button class="button">Sair</button>
+    </a>
+  </p>
+
+
+  <!--
+        <div>
+          <a href="{{url_for('logout')}}">
+            <bottom>Sair</bottom>
+          </a>
+        </div>
+        -->
+
+  <div class="cont-foot">
+    <div class="cont-foot-img">
+      <div>
+        <img src="../static/img/logo-coids_final.png" alt="" />
+      </div>
+      <div>
+        <img src="../static/img/logoSesupFinal.png" alt="" />
+      </div>
+    </div>
+
+    <p>Copyright (c) 2023 COIDS 
+    <br> Todos os direitos reservados.</br></p>
+  </div>
+</div>
+
+

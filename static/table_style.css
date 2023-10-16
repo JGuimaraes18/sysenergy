@@ -1,0 +1,482 @@
+body {
+    font-family: 'Courier', Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.menu-container {
+    width: 20%;
+    margin-right: 20px;
+}
+
+.contentbar {
+    height: 700px;
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.281);
+}
+
+.contentbar h1 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 1600px) {
+  .home {
+    width: 85%;
+    margin-left: 7%;
+    
+  }
+}
+
+@media (max-width: 1500px) {
+  .contentbar {
+    width: 70%;
+  }
+
+  .result-table-datacenter{
+    width: 450px;
+  }
+}
+
+.form-table {
+    margin-bottom: 20px;
+}
+
+.form-table tr td:first-child {
+    text-align: right;
+    padding-right: 10px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+#titulo {
+  text-align: center;
+  width: 100px;
+  padding: 10px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  height: 12px;
+  font-size: 12px;
+
+}
+
+.form-table input[type="date"],
+.form-table input[type="text"],
+.form-table input[type="number"]{
+  width: 75px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  height: 12px;
+  font-size: 15px;
+}
+
+.form-table #date {
+  width: 140px;
+}
+
+.form-table ::placeholder {
+  font-size: 12px; 
+}
+
+.form-table input[type="submit"] {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.form-table input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/*--------------- Início - Datacenter ---------------------------------*/
+
+.result-table-datacenter {
+    width:850px;
+    position: relative;
+    float: left;
+    display:block;
+    height: 70vh;
+    overflow: auto;
+    border-collapse: collapse;
+    margin-left: 2%;        
+    /* border: 1px solid rgba(0, 0, 0, 0.281); */
+  }
+  
+.result-table-datacenter th {
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .result-table-datacenter td {
+    padding: 6px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .estilo-tabela th {
+    background-color: #e9e9e9; 
+    padding: 0 5px 0 5px;
+    border: 1px solid rgba(0, 0, 0, 0.164);
+  }
+  
+  .estilo-tabela td {
+    border: 1px solid rgba(0, 0, 0, 0.164);
+  }
+  /*--------------- Fim - Datacenter ---------------------------------*/
+  
+  .table-responsive{
+  display:flex;
+  justify-content: center;
+  margin-top: 5%;
+  width: 100%;
+  border-collapse: collapse;  
+  padding: 8px; 
+}
+
+ #table, #table1 {
+  border: 1px solid black;
+  padding: 8px; 
+}
+
+/*--------------- Início - Supercomputação ---------------------------------*/
+
+.result-table-super {
+  width:auto;
+  position: relative;
+  float: left;
+  display:block;
+  height: 40vh;
+  overflow: auto;
+  border-collapse: collapse;
+  margin-left: 2%;    
+}
+
+.result-table-super th {
+font-size: 14px;
+text-align: center;
+font-weight: bold;
+font-family: 'Courier New', Courier, monospace;
+/* background-color: #f2f2f2;  */
+}
+
+.result-table-super td {
+  padding: 6px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/*--------------- Fim - Supercomputação ---------------------------------*/
+
+/*--------------- Início - Utilidades ---------------------------------*/
+
+.result-table-util {
+  width:auto;
+  position: relative;
+  float: left;
+  display:block;
+  height: 70vh;
+  overflow: auto;
+  border-collapse: collapse;
+  margin-left: 2%;    
+}
+
+.result-table-util th {
+font-size: 14px;
+text-align: center;
+font-weight: bold;
+font-family: 'Courier New', Courier, monospace;
+/* background-color: #f2f2f2;  */
+}
+
+.result-table-util td {
+  padding: 6px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/*--------------- Fim - Utilidades ---------------------------------*/
+
+/*--------------- Início - Ar Condicionado ---------------------------------*/
+
+.result-table-ar {
+  width:auto;
+  position: relative;
+  float: left;
+  display:block;
+  height: 70vh;
+  overflow: auto;
+  border-collapse: collapse;
+  margin-left: 2%;    
+}
+
+.result-table-ar th {
+font-size: 14px;
+text-align: center;
+font-weight: bold;
+font-family: 'Courier New', Courier, monospace;
+/* background-color: #f2f2f2;  */
+}
+
+.result-table-ar td {
+  padding: 6px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/*--------------- Fim - Ar Condicionado ---------------------------------*/
+
+/*--------------- Início - CAG ---------------------------------*/
+
+.result-table-cag {
+  width:auto;
+  position: relative;
+  float: left;
+  display:block;
+  height: 70vh;
+  overflow: auto;
+  border-collapse: collapse;
+  margin-left: 2%;    
+}
+
+.result-table-cag th {
+font-size: 14px;
+text-align: center;
+font-weight: bold;
+font-family: 'Courier New', Courier, monospace;
+/* background-color: #f2f2f2;  */
+}
+
+.result-table-cag td {
+  padding: 6px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/*--------------- Fim - CAG ---------------------------------*/
+
+/*--------------- Início - Agua ---------------------------------*/
+
+.result-table-agua {
+  width:auto;
+  position: relative;
+  float: left;
+  display:block;
+  height: 70vh;
+  overflow: auto;
+  border-collapse: collapse;
+  margin-left: 2%;    
+}
+
+.result-table-agua th {
+font-size: 14px;
+text-align: center;
+font-weight: bold;
+font-family: 'Courier New', Courier, monospace;
+/* background-color: #f2f2f2;  */
+}
+
+.result-table-agua td {
+  padding: 6px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/*--------------- Fim - Agua ---------------------------------*/
+
+/*--------------- Início - Gerador ---------------------------------*/
+
+.result-table-gerador {
+  /* width:auto; */
+  position: relative;
+  float: left;
+  display:block;
+  height: 40vh;
+  overflow: auto;
+  border-collapse: collapse;
+  margin-left: 2%;    
+}
+
+.result-table-gerador th {
+font-size: 14px;
+text-align: center;
+font-weight: bold;
+font-family: 'Courier New', Courier, monospace;
+/* background-color: #f2f2f2;  */
+}
+
+.result-table-gerador td {
+  padding: 6px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/*--------------- Fim - Gerador ---------------------------------*/
+
+/*--------------- Início - Óleo Diesel ---------------------------------*/
+
+.result-table-oleo {
+  /* width:auto; */
+  position: relative;
+  float: left;
+  display:block;
+  height: 50vh;
+  overflow: auto;
+  border-collapse: collapse;
+  margin-left: 2%;    
+}
+
+.result-table-oleo th {
+font-size: 14px;
+text-align: center;
+font-weight: bold;
+font-family: 'Courier New', Courier, monospace;
+/* background-color: #f2f2f2;  */
+}
+
+.result-table-oleo td {
+  padding: 6px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/*--------------- Fim - Óleo Diesel ---------------------------------*/
+
+/* body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: grid;
+    grid-template-areas:
+    'sidebar content';
+  }
+
+  
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  
+  @media (max-width: 768px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+  } */
+
+
+
+
+
+  main {
+    /* display: inline-flex;
+    padding: 137px 479px; */
+    /* align-items: flex-start; */
+    /* gap: 10px; */
+
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; */
+
+
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    /* background: var(--gray-50, #f7f9fc); */
+}
+
+section {
+    /* 
+    width: 408px;
+    height: 100%;
+    padding: 32px 64px;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px; */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    height: 645.09px;
+
+    border-radius: 16px;
+    /* background: var(--white, #FFF); */
+    /* box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.04); */
+}
+
+/* Define a altura do conteúdo */
+.content {
+  height: calc(100% - 80px); /* Calcula a altura subtraindo 80px do tamanho total */
+  overflow: auto; /* Adiciona uma barra de rolagem caso o conteúdo seja maior que a altura disponível */
+}
+
+/* Torna a tabela responsiva */
+.table-responsive {
+  width: 100%; /* Define a largura da tabela como 100% */
+  overflow-x: auto; /* Adiciona uma barra de rolagem horizontal caso a tabela seja maior que a largura disponível */
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Define o tamanho máximo da tabela */
+.table-wrapper {
+  width: max-content; /* Define a largura máxima da tabela como o tamanho máximo do seu conteúdo */
+  max-width: 100%; /* Define a largura máxima da tabela como 100% */
+  overflow: auto; /* Adiciona uma barra de rolagem caso a tabela seja maior que a largura máxima */
+  padding-right: 20px; /* Adicione um espaçamento para evitar que a tabela se sobreponha ao scroll vertical */
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* Estilos responsivos para dispositivos móveis */
+@media (max-width: 768px) {
+  .content {
+      height: auto; /* Define a altura do conteúdo como automática para dispositivos móveis */
+  }
+}

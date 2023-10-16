@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Combustível</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/table_style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+    {% include "menu.html" %}
+    <div class="container">
+        <div class="menu-container">
+            <!-- Menu content here -->
+        </div>
+        <div class="main-container">
+            <div class="contentbar">
+                <h1>Óleo Diesel</h1>
+                {% block content %}
+                <form action="{{ url_for('combustivel') }}" class="form" method="post" autocomplete="off">
+                    <div class="div-bloco"> 
+                        <table class="form-table">
+                            <tr>
+                                <td>Data:</td>
+                                <td colspan="2"><input type="date" name="data" class="textbox" id="date" required></td>
+                            </tr>
+                            <tr id="titulo">
+                                <td>&nbsp;</td>
+                                <td>cm</td>
+                                <td>litros</td>
+                            </tr>
+                            <tr>
+                                <td>Tanque 01 Externo (A):</td>
+                                <td><input type="number" name="tA-cm" id="tA-cm" oninput="calcularLitro(this.value, 'tA-litro', 'externo')" ></td>
+                                <td><input type="number" name="tA-litro" id="tA-litro" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Tanque 02 Externo (B):</td>
+                                <td><input type="number" name="tB-cm" id="tB-cm" oninput="calcularLitro(this.value, 'tB-litro', 'externo')" ></td>
+                                <td><input type="number" name="tB-litro" id="tB-litro" readonly></td>
+                            </tr>                                            
+                            <tr>
+                                <td>Tanques Internos (C):</td>
+                                <td><input type="number" name="tC-cm" id="tC-cm" oninput="calcularLitro(this.value, 'tC-litro', 'interno')" ></td>
+                                <td><input type="text" name="tC-litro" id="tC-litro" readonly></td>
+                            </tr>                                         
+                            <tr>
+                                <td>Total (A+B+C):</td>
+                                <td>&nbsp;</td>
+                                <td><input type="text" name="tTotal-litro" id="tTotal-litro" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Recebimento de Óleo Diesel (E):</td>
+                                <td>&nbsp;</td>
+                                <td><input type="text" name="oleoIn" id="oleoIn" class="textbox" ></td>
+                            </tr>             
+                            <tr>
+                                <td>Retirada Externa de Óleo Diesel (F):</td>
+                                <td>&nbsp;</td>
+                                <td><input type="text" name="oleoOut" id="oleoOut" class="textbox" ></td>
+                            </tr>             
+                        </table>
+                        <button class="botao" type="submit" value="GRAVAR">Gravar</button>
+                        <button class="botao" type="button"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Observações</button>
+                        <button class="botao" type="button"  data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo">Relatório</button>
+                    </div> 
+                </form>
+
+    <!-- ******************** Início - Tabela Óleo Diesel' ******************** -->                     
+                <div>     
+                    <table class="result-table-oleo estilo-tabela">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Tanque 01 Externo (A)</th>
+                                <th>Tanque 02 Externo (B)</th>
+                                <th>Tanques Internos (C)</th>
+                                <th>Total (A+B+C)</th>
+                            </tr>
+                        </thead> 
+
+                        <tbody>
+                            {% for item in resultSearch %}
+                            <tr>
+                                <td>{{ item.0 }}</td>
+                                <td>{{ item.1 }}</td>
+                                <td>{{ item.2 }}</td>
+                                <td>{{ item.3 }}</td>
+                                <td>{{ item.4 }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% endblock %}
+                </div>            
+
+        <!--*******************************Modal****************************************-->
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Observações</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <form action="{{ url_for('observacoes') }}" class="form" method="post" autocomplete="off">
+                                <div class="modal-body">
+                                        <div class="form-group">
+                                            <td>Data:</td>
+                                            <td colspan="2"><input type="date" name="data" class="textbox" id="date" required></td> <br><br>
+                                            <textarea name="obs_combustivel" class="form-control" id="message-text" value="campo de observacao" required></textarea>
+                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Relatório</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <form action="{{ url_for('relatorio') }}" id="relatorioForm" class="form" method="post">
+                                <div class="modal-body">
+                                        <div class="form-group">
+                                            <td>Data Inicial: </td>
+                                            <td colspan="2"><input type="date" name="data_inicial" class="textbox" id="date" required></td> <br><br>
+                                           <td> Data Final: </td>
+                                           <td colspan="2"><input type="date" name="data_final" class="textbox" id="date" required></td> <br><br>
+                                           <input type="hidden" id="rel_combustivel" name="rel_combustivel" value="1">
+                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button type="submit" class="btn btn-secondary" value="Gerar Relatórios">Gerar Relatórios</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>      
+        <!--******************************Fim Modal**************************************--> 
+                </div>    
+            </div>
+        </div>
+
+    <script>
+        function calcularLitro(a, tanque, tipo) {
+            const formData = new URLSearchParams();
+            formData.append('cm_valor', a);
+            formData.append('tipo', tipo);
+
+            fetch('/buscar_litros', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                const litrosValor = parseFloat(data.litros_valor) || 0; 
+                document.getElementById(tanque).value = litrosValor.toFixed(2); 
+                calcularTotalLitro(); 
+            })
+            .catch(error => {
+                console.error('Erro ao buscar litros:', error);
+            });
+        }
+        
+        function calcularTotalLitro() {
+            var tA = parseFloat(document.getElementById('tA-litro').value) || 0;
+            var tB = parseFloat(document.getElementById('tB-litro').value) || 0;
+            var tC = parseFloat(document.getElementById('tC-litro').value) || 0;
+            var total = tA + tB + tC;
+            document.getElementById('tTotal-litro').value = total.toFixed(2);
+        }
+
+        document.getElementById('tA-litro').addEventListener('input', calcularTotalLitro);
+        document.getElementById('tB-litro').addEventListener('input', calcularTotalLitro);
+        document.getElementById('tC-litro').addEventListener('input', calcularTotalLitro);
+        calcularTotalLitro();
+ 
+
+        // Scripts para o gerar o relatorio
+        document.getElementById('relatorioForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Evita o envio padrão do formulário
+
+            // Envia o formulário via AJAX
+            var formData = new FormData(this);
+            fetch('/relatorio', {
+                method: 'POST',
+                body: formData
+            })
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                var zipData = atob(data.zipData);
+                var blob = new Blob([new Uint8Array([...zipData].map(char => char.charCodeAt(0)))], { type: 'application/zip' });
+                var url = URL.createObjectURL(blob);
+
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = 'relatorios_combustivel.zip';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            });
+        });
+    </script>                
+</body>
+</html>

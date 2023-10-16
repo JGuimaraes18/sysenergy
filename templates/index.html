@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/table_style.css">
+    <link rel="stylesheet" href="../static/index.css">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    
+    <title>Home</title>
+</head>
+
+<body>
+    <!-- Inclui o conteúdo do arquivo "menu.html" -->
+    {% include "menu.html" %}
+    <!-- Define a seção principal -->
+    <main>
+        <section>
+            <div class="container">
+                <div class="main-container">
+                    <div class="contentbar home">
+                        <h2 style="align-items: center">ENERGIA ELÉTRICA - kWh</h2>
+                        <div class="table-responsive">
+                            <div class="table-wrapper">
+                                <table id="table" class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th style="white-space: nowrap;">Data</th>
+                                            <th style="white-space: nowrap;">BTE 10-10</th>
+                                            <th style="white-space: nowrap;">BTE 10-20</th>
+                                            <th style="white-space: nowrap;">BTE 10-30</th>
+                                            <th style="white-space: nowrap;">BTE 10-40</th>
+                                            <th style="white-space: nowrap;">BTE 10-50</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="custom-table">
+                                        {% for item in resultSearchE %}
+                                        <tr>
+                                            <td style="white-space: nowrap;">{{ item.0 }}</td>
+                                            <td style="white-space: nowrap;">{{ item.1 }}</td>
+                                            <td style="white-space: nowrap;">{{ item.2 }}</td>
+                                            <td style="white-space: nowrap;">{{ item.3 }}</td>
+                                            <td style="white-space: nowrap;">{{ item.4 }}</td>
+                                            <td style="white-space: nowrap;">{{ item.5 }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <main>
+        <section>
+            <div class="container">
+                <div class="main-container">
+                    <div class="contentbar home" >
+                        <h2>Consumo Água – m³</h2>
+                        <div class="table-responsive">
+                            <div class="table-wrapper">
+                                <table id="table1" class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th style="white-space: nowrap;">Data</th>
+                                            <th style="white-space: nowrap;">Geral CPTEC</th>
+                                            <th style="white-space: nowrap;">Torres de Resfriamento</th>
+                                            <th style="white-space: nowrap;">Água Gelada</th>
+                                            <th style="white-space: nowrap;">Prédio</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="custom-table">
+                                        {% for item in resultSearchA %}
+                                        <tr>
+                                            <td style="white-space: nowrap;">{{ item.0 }}</td>
+                                            <td style="white-space: nowrap;">{{ item.1 }}</td>
+                                            <td style="white-space: nowrap;">{{ item.2 }}</td>
+                                            <td style="white-space: nowrap;">{{ item.3 }}</td>
+                                            <td style="white-space: nowrap;">{{ item.1|float + item.2|float + item.3|float }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>                   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../static/controller.js"></script>
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.0/js/bootstrap.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#table').DataTable({
+                autoWidth: false,
+                columnDefs: [
+                    {
+                        width: 'auto', 
+                        targets: '_all'
+                    }
+                ]
+            });
+
+            $('#table1').DataTable({
+                autoWidth: false,
+                columnDefs: [
+                    {
+                        width: 'auto', 
+                        targets: '_all'
+                    }
+                ]
+            });
+        });
+    </script>
+
+</body>
+
+</html>

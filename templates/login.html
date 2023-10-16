@@ -1,0 +1,84 @@
+<html> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <title> Login </title> 
+        <!--
+            <link rel="stylesheet" href="../static/style.css">        
+        -->
+        <link rel="stylesheet" href="../static/login.css">
+        
+    </head> 
+    <body>
+        <!--
+        <div class="logincontent" align="center"> 
+            <div class="logintop"> 
+                <h1>Login</h1> 
+            </div></br></br></br></br> 
+            <div class="loginbottom"> 
+              <form action="{{ url_for('login')}}" method="post" autocomplete="off"> 
+            <div class="msg">{{ msg }}</div> 
+            <input type="text" name="operador" placeholder="Enter Your Username" class="textbox" id="operador" required></br></br> 
+            <input type="password" name="senha" placeholder="Enter Your Password" class="textbox" id="senha" required></br></br></br> 
+            <input type="submit" class="btn" value="Login"> 
+              </form></br></br> 
+              <p class="worddark">New to this page? <a class="worddark" href="{{ url_for('register')}}">Register here</a></p> 
+            </div> 
+        </div>
+        --> 
+
+        <main>
+            <section>
+                <div class="group-login">
+                    <h1>
+                        SYSENERGY   
+                    </h1>
+                    <div class="group-labels">
+                        <form action="{{ url_for('login')}}" method="post" autocomplete="off"> 
+                            <div class="msg">{{ msg }}</div>
+                            <label>Nome de Usuário</label>
+                            <div class="input-group mb-3">
+                                <br>
+                                <input id="operador" type="text" class="form-control" name="operador" placeholder="Nome de usuário" aria-label="Username" required>
+                            </div>
+                            <br>
+                            <label>Senha</label>
+                            <div class="input-group mb-3">
+                                <br>
+                                <input id="senha" type="password" class="form-control" name="senha" placeholder="Senha" aria-label="Username" required>
+                            </div>
+                            <br>
+                            <div class="d-grid">
+                                <button type="submit" class="btn" value="Login">Entrar</button>
+                            </div>
+
+                            <br>
+                            <hr>
+
+                            <p>Ainda não tem conta? <a class="worddark" href="{{ url_for('register')}}">Registre-se</a></p>
+
+                            <div class="cont-foot">
+                                <div class="cont-foot-img">
+                                <div>
+                                    <img src="../static/img/logo-coids_final.png" alt="">
+                                </div>
+                                <div>
+                                    <img src="../static/img/logoSesupFinal.png" alt="">
+                                </div>
+                                </div>
+                        
+                                <p>Copyright (c) 2023 COIDS
+                                Todos os direitos reservados.</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    </body> 
+</html> 

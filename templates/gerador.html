@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gerador</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/table_style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+    {% include "menu.html" %}
+    <div class="container">
+        <div class="menu-container">
+            <!-- Menu content here -->
+        </div>
+        <div class="main-container">
+            <div class="contentbar">
+                <div >{{ msg }}</div> 
+                <h1>Gerador</h1>
+                {% block content %}
+                <form action="{{ url_for('gerador') }}" class="form" method="post" autocomplete="off">
+                    <div>
+                        <table class="form-table">
+                            <tr>
+                                <td>Data:</td>
+                                <td colspan="2"><input type="date" name="data" class="textbox" id="date" required></td>
+                            </tr>
+                            <tr id="titulo">
+                                <td>Gerador</td>
+                                <td>Horas Trabalhadas</td>
+                                <td>KWh Produzidos</td>
+                                <td>Temperatura Água</td>
+                                <td>Temperatura Óleo</td>
+                                <td>Bateria 1 (A)</td>
+                                <td>Bateria 1 (B)</td>
+                                <td>Total Baterias (A+B)</td>
+                            </tr>
+                            <tr>
+                                <td>Gerador 1:</td>
+                                <td><input type="text" name="g1-hora" onchange="this.value = this.value.replace('.', ',')" class="textbox" ></td>
+                                <td><input type="text" name="g1-kwh" onchange="this.value = this.value.replace('.', ',')" class="textbox" ></td>
+                                <td><input type="text" name="g1-tempAgua" onchange="this.value = this.value.replace('.', ',')" class="textbox" ></td>
+                                <td><input type="text" name="g1-tempOleo" onchange="this.value = this.value.replace('.', ',')" class="textbox" ></td>
+                                <td><input type="text" id="g1-batA" name="g1-batA" onchange="this.value = this.value.replace('.', ',')" oninput="calcularSoma('g1')" ></td>
+                                <td><input type="text" id="g1-batB" name="g1-batB" onchange="this.value = this.value.replace('.', ',')" oninput="calcularSoma('g1')" ></td>
+                                <td><input type="number" id="g1-batTotal" name="g1-batTotal" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Gerador 2:</td>
+                                <td><input type="text" name="g2-hora" onchange="this.value = this.value.replace('.', ',')" class="textbox" ></td>
+                                <td><input type="text" name="g2-kwh" onchange="this.value = this.value.replace('.', ',')" class="textbox" ></td>
+                                <td><input type="text" name="g2-tempAgua" onchange="this.value = this.value.replace('.', ',')" class="textbox" ></td>
+                                <td><input type="text" name="g2-tempOleo" onchange="this.value = this.value.replace('.', ',')" class="textbox" ></td>
+                                <td><input type="text" id="g2-batA" name="g2-batA" onchange="this.value = this.value.replace('.', ',')" oninput="calcularSoma('g2')" ></td>
+                                <td><input type="text" id="g2-batB" name="g2-batB" onchange="this.value = this.value.replace('.', ',')" oninput="calcularSoma('g2')" ></td>
+                                <td><input type="number" id="g2-batTotal" name="g2-batTotal" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Gerador 3:</td>
+                                <td><input type="text" name="g3-hora" onchange="this.value = this.value.replace('.', ',')" class="textbox" ></td>
+                                <td><input type="text" name="g3-kwh" onchange="this.value = this.value.replace('.', ',')" class="textbox" ></td>
+                                <td><input type="text" name="g3-tempAgua" onchange="this.value = this.value.replace('.', ',')" class="textbox" ></td>
+                                <td><input type="text" name="g3-tempOleo" onchange="this.value = this.value.replace('.', ',')" class="textbox" ></td>
+                                <td><input type="text" id="g3-batA" name="g3-batA" onchange="this.value = this.value.replace('.', ',')" oninput="calcularSoma('g3')" ></td>
+                                <td><input type="text" id="g3-batB" name="g3-batB" onchange="this.value = this.value.replace('.', ',')" oninput="calcularSoma('g3')" ></td>
+                                <td><input type="number" id="g3-batTotal" name="g3-batTotal" readonly></td>
+                            </tr>
+                            <tr>
+                                <td>Gerador 4:</td>
+                                <td><input type="text" name="g4-hora" onchange="this.value = this.value.replace('.', ',')" class="textbox" ></td>
+                                <td><input type="text" name="g4-kwh" onchange="this.value = this.value.replace('.', ',')" class="textbox" ></td>
+                                <td><input type="text" name="g4-tempAgua" onchange="this.value = this.value.replace('.', ',')" class="textbox" ></td>
+                                <td><input type="text" name="g4-tempOleo" onchange="this.value = this.value.replace('.', ',')" class="textbox" ></td>
+                                <td><input type="text" id="g4-batA" name="g4-batA" onchange="this.value = this.value.replace('.', ',')" oninput="calcularSoma('g4')" ></td>
+                                <td><input type="text" id="g4-batB" name="g4-batB" onchange="this.value = this.value.replace('.', ',')" oninput="calcularSoma('g4')" ></td>
+                                <td><input type="number" id="g4-batTotal" name="g4-batTotal" readonly></td>
+                            </tr>
+                        </table>
+                        <div class="grupo-botao">
+                            <button class="botao" type="submit" value="GRAVAR">Gravar</button>
+                            <button class="botao" type="button"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Observações</button>
+                        </div>
+                    </div>  
+                </form>
+
+<!-- ******************** Início - Tabela Gerador ******************** -->                
+                        <div>              
+                                <table class="result-table-gerador estilo-tabela">
+                                    <thead>
+                                        <tr>
+                                            <th>Data</th>
+                                            <th>Horas Trabalhadas</th>
+                                            <th>kWh Produzidos</th>
+                                            <th>Temperatura Água</th>
+                                            <th>Temperatura Óleo</th>
+                                            <th>Bateria 1 (A)</th>
+                                            <th>Bateria 2 (B)</th>
+                                            <th>Total Baterias (A+B)</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        {% for item in resultSearch %}
+                                        <tr>
+                                            <td>{{ item.2 }}</td>
+                                            <td>{{ item.4 }}</td>
+                                            <td>{{ item.5 }}</td>
+                                            <td>{{ item.6 }}</td>
+                                            <td>{{ item.7 }}</td>
+                                            <td>{{ item.8 }}</td>
+                                            <td>{{ item.9 }}</td>
+                                            <td>{{ item.10 }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ item.2 }}</td>
+                                            <td>{{ item.11 }}</td>
+                                            <td>{{ item.12 }}</td>
+                                            <td>{{ item.13 }}</td>
+                                            <td>{{ item.14 }}</td>
+                                            <td>{{ item.15 }}</td>
+                                            <td>{{ item.16 }}</td>
+                                            <td>{{ item.17 }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ item.2 }}</td>
+                                            <td>{{ item.18 }}</td>
+                                            <td>{{ item.19 }}</td>
+                                            <td>{{ item.20 }}</td>
+                                            <td>{{ item.21 }}</td>
+                                            <td>{{ item.22 }}</td>
+                                            <td>{{ item.23 }}</td>
+                                            <td>{{ item.24 }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ item.2 }}</td>
+                                            <td>{{ item.25 }}</td>
+                                            <td>{{ item.26 }}</td>
+                                            <td>{{ item.27 }}</td>
+                                            <td>{{ item.28 }}</td>
+                                            <td>{{ item.29 }}</td>
+                                            <td>{{ item.30 }}</td>
+                                            <td>{{ item.31 }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% endblock %}
+                            </div>
+                        </div>
+                    </div>                
+       
+        <!--*******************************Modal****************************************-->
+           
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Observações</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <form action="{{ url_for('observacoes') }}" class="form" method="post" autocomplete="off">
+                        <div class="modal-body">
+                                <div class="form-group">
+                                    <td>Data:</td>
+                                    <td colspan="2"><input type="date" name="data" class="textbox" id="date" required></td> <br><br>
+                                    <textarea name="obs_gerador" class="form-control" id="message-text" value="campo de observacao" required></textarea>
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+<!--******************************Fim Modal**************************************--> 
+        </div>    
+    </div>
+</div>                        
+    <script>
+        function calcularSoma(gerador) {
+            var campo1 = parseFloat(document.getElementById(gerador + "-batA").value.replace(',', '.'));
+            var campo2 = parseFloat(document.getElementById(gerador + "-batB").value.replace(',', '.'));
+            
+            if (!isNaN(campo1) && !isNaN(campo2)) {
+                var resultado = campo1 + campo2;
+                document.getElementById(gerador + "-batTotal").value = resultado.toFixed(2);
+            } else {
+                document.getElementById(gerador + "-batTotal").value = "0";
+            }
+        }
+    </script>                              
+</body>
+</html>
