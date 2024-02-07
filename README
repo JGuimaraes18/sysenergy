@@ -12,7 +12,9 @@ Versões de bibliotecas:
 - gevent==23.7.0
 - PyMySQL==1.1.0
 - python-dotenv==1.0.0
-
+- fpdf==1.7.2
+- reportlab==4.0.5
+ 
 Porta: 5002 # Podendo ser alterada no final do arquivo app.py
 
 Rotas: app.py

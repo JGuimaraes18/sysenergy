@@ -79,7 +79,7 @@ def insereSupercomputacao(data, bte1010kwh, ups05kwh, ups06kwh, bte101000kwh, pd
     return msg
 
 def buscaSupercomputacao(cursor):
-    cursor.execute('SELECT * FROM supercomputacao') 
+    cursor.execute('SELECT * FROM supercomputacao ORDER BY data DESC') 
     resultSearch = cursor.fetchall()
     return resultSearch
 
@@ -97,7 +97,7 @@ def insereDatacenter(data, bte1020kwh, bte1020kw, bte10200kwh, bte10200kw, ups01
     return msg
 
 def buscaDatacenter(cursor):
-    cursor.execute('SELECT * FROM datacenter') 
+    cursor.execute('SELECT * FROM datacenter ORDER BY data DESC') 
     resultSearch = cursor.fetchall()
     return resultSearch
 
@@ -115,7 +115,7 @@ def insereUtilidades(data, bte1030kwh, bte1030kw, session, cursor):
     return msg
 
 def buscaUtilidades(cursor):
-    cursor.execute('SELECT * FROM utilidades') 
+    cursor.execute('SELECT * FROM utilidades ORDER BY data DESC') 
     resultSearch = cursor.fetchall()
     return resultSearch
 
@@ -133,7 +133,7 @@ def insereArCondicionado(data, bte1040kwh, bte1050kwh, bte1040kw, bte1050kw, ses
     return msg
 
 def buscaArCondicionado(cursor):
-    cursor.execute('SELECT * FROM arCondicionado') 
+    cursor.execute('SELECT * FROM arCondicionado ORDER BY data DESC') 
     resultSearch = cursor.fetchall()
     return resultSearch
 
@@ -151,7 +151,7 @@ def insereCAG(data, bte10515kwh, bte10401kwh, bte10515kw, bte10401kw, session, c
     return msg
 
 def buscaCAG(cursor):
-    cursor.execute('SELECT * FROM cag') 
+    cursor.execute('SELECT * FROM cag ORDER BY data DESC') 
     resultSearch = cursor.fetchall()
     return resultSearch
 
@@ -169,7 +169,7 @@ def insereAgua(data, cptecGeral, torres, agua, session, cursor):
     return msg
 
 def buscaAgua(cursor):
-    cursor.execute('SELECT * FROM agua') 
+    cursor.execute('SELECT * FROM agua ORDER BY data DESC') 
     resultSearch = cursor.fetchall()
     return resultSearch
 
@@ -205,7 +205,7 @@ def insereCombustivel(data, taCM, taLitro, tbCM, tbLitro, tcCM, tcLitro, totalLi
     return msg
 
 def buscaCombustivel(cursor):
-    cursor.execute('SELECT data, taLitro, tbLitro, tcLitro, totalLitro FROM combustivel') 
+    cursor.execute('SELECT data, taLitro, tbLitro, tcLitro, totalLitro FROM combustivel ORDER BY data DESC') 
     resultSearch = cursor.fetchall()
     return resultSearch
 
