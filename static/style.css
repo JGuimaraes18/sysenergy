@@ -176,7 +176,7 @@ section {
     justify-content: center;
 }
 
-
+ 
 .botao{
     border: solid 1px blue;
     border-radius: 20px;
@@ -207,7 +207,7 @@ section {
 
 .main-container {
     width: 800rem;
-    height: 700px;
+    height: 90%;
     margin-left: 7%;
     margin-right: -8.5%;
     margin-top: 1rem;

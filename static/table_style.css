@@ -13,13 +13,18 @@ body {
     width: 20%;
     margin-right: 20px;
 }
-
+ 
 .contentbar {
-    height: 700px;
+    height: 100%;
     width: 100%;
     padding: 15px;
     border-radius: 5px;
+    flex-direction: column;
     box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.281);
+    display: flex; 
+    overflow: auto;
+    position: relative;
+    padding-bottom: 20px;
 }
 
 .contentbar h1 {
@@ -105,7 +110,7 @@ body {
 /*--------------- Início - Datacenter ---------------------------------*/
 
 .result-table-datacenter {
-    width:850px;
+    width:auto;
     position: relative;
     float: left;
     display:block;
@@ -113,7 +118,6 @@ body {
     overflow: auto;
     border-collapse: collapse;
     margin-left: 2%;        
-    /* border: 1px solid rgba(0, 0, 0, 0.281); */
   }
   
 .result-table-datacenter th {
@@ -174,7 +178,6 @@ font-size: 14px;
 text-align: center;
 font-weight: bold;
 font-family: 'Courier New', Courier, monospace;
-/* background-color: #f2f2f2;  */
 }
 
 .result-table-super td {
@@ -190,14 +193,14 @@ font-family: 'Courier New', Courier, monospace;
 /*--------------- Início - Utilidades ---------------------------------*/
 
 .result-table-util {
-  width:auto;
-  position: relative;
-  float: left;
-  display:block;
-  height: 70vh;
+  width: auto;
+  position: absolute;
+  top: 5%;
+  right: 25%;
+  margin-bottom: 5%;
+  height: 90%;
   overflow: auto;
   border-collapse: collapse;
-  margin-left: 2%;    
 }
 
 .result-table-util th {
@@ -205,7 +208,6 @@ font-size: 14px;
 text-align: center;
 font-weight: bold;
 font-family: 'Courier New', Courier, monospace;
-/* background-color: #f2f2f2;  */
 }
 
 .result-table-util td {
@@ -221,14 +223,14 @@ font-family: 'Courier New', Courier, monospace;
 /*--------------- Início - Ar Condicionado ---------------------------------*/
 
 .result-table-ar {
-  width:auto;
-  position: relative;
-  float: left;
-  display:block;
-  height: 70vh;
+  width: auto;
+  position: absolute;
+  top: 5%;
+  right: 15%;
+  margin-bottom: 5%;
+  height: 90%;
   overflow: auto;
   border-collapse: collapse;
-  margin-left: 2%;    
 }
 
 .result-table-ar th {
@@ -236,7 +238,6 @@ font-size: 14px;
 text-align: center;
 font-weight: bold;
 font-family: 'Courier New', Courier, monospace;
-/* background-color: #f2f2f2;  */
 }
 
 .result-table-ar td {
@@ -252,14 +253,14 @@ font-family: 'Courier New', Courier, monospace;
 /*--------------- Início - CAG ---------------------------------*/
 
 .result-table-cag {
-  width:auto;
-  position: relative;
-  float: left;
-  display:block;
-  height: 70vh;
+  width: auto;
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  margin-bottom: 5%;
+  height: 90%;
   overflow: auto;
   border-collapse: collapse;
-  margin-left: 2%;    
 }
 
 .result-table-cag th {
@@ -267,7 +268,6 @@ font-size: 14px;
 text-align: center;
 font-weight: bold;
 font-family: 'Courier New', Courier, monospace;
-/* background-color: #f2f2f2;  */
 }
 
 .result-table-cag td {
@@ -283,14 +283,14 @@ font-family: 'Courier New', Courier, monospace;
 /*--------------- Início - Agua ---------------------------------*/
 
 .result-table-agua {
-  width:auto;
-  position: relative;
-  float: left;
-  display:block;
-  height: 70vh;
+  width: auto;
+  position: absolute;
+  top: 5%;
+  right: 25%;
+  margin-bottom: 5%;
+  height: 90%;
   overflow: auto;
   border-collapse: collapse;
-  margin-left: 2%;    
 }
 
 .result-table-agua th {
@@ -298,7 +298,6 @@ font-size: 14px;
 text-align: center;
 font-weight: bold;
 font-family: 'Courier New', Courier, monospace;
-/* background-color: #f2f2f2;  */
 }
 
 .result-table-agua td {
@@ -314,7 +313,7 @@ font-family: 'Courier New', Courier, monospace;
 /*--------------- Início - Gerador ---------------------------------*/
 
 .result-table-gerador {
-  /* width:auto; */
+  width:auto;
   position: relative;
   float: left;
   display:block;
@@ -345,14 +344,14 @@ font-family: 'Courier New', Courier, monospace;
 /*--------------- Início - Óleo Diesel ---------------------------------*/
 
 .result-table-oleo {
-  /* width:auto; */
-  position: relative;
-  float: left;
-  display:block;
-  height: 50vh;
+  width: auto;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  margin-bottom: 5%;
+  height: 90%;
   overflow: auto;
   border-collapse: collapse;
-  margin-left: 2%;    
 }
 
 .result-table-oleo th {
@@ -360,7 +359,6 @@ font-size: 14px;
 text-align: center;
 font-weight: bold;
 font-family: 'Courier New', Courier, monospace;
-/* background-color: #f2f2f2;  */
 }
 
 .result-table-oleo td {
