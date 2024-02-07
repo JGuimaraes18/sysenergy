@@ -275,7 +275,7 @@ CREATE TABLE `operador` (
 
 LOCK TABLES `operador` WRITE;
 /*!40000 ALTER TABLE `operador` DISABLE KEYS */;
-INSERT INTO `operador` VALUES (1,'Joao','ed2befb11499489e2570cb053f774b8ed93e89eddab3f78867a2a5f32c58845e','joao.guimaraes@inpe.br','Datainfo'),(2,'Luca','8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92','luca.couto@inpe.br','Datainfo - INPE'),(3,'Marcelo','5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5','marcelo.prado@inpe.br','INPE');
+INSERT INTO `operador` VALUES (1,'Joao','ed2befb11499489e2570cb053f774b8ed93e89eddab3f78867a2a5f32c58845e','joao@email.br','Empresa XYZ'),(2,'Luca','8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92','luca@email.br','EMPRESA XYZ'),(3,'Marcelo','5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5','marcelo@email.br','EMPRESA XYZ');
 /*!40000 ALTER TABLE `operador` ENABLE KEYS */;
 UNLOCK TABLES;
 
